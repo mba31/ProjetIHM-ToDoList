@@ -540,6 +540,7 @@
   const toastEl     = document.getElementById('toast');
   const mainArea    = document.getElementById('mainArea');
   let   pinchStartDistance = null;
+  let   menuToggleDelegationBound = false;
 
   /* ══════════════════════════════════════════════════════
      DASHBOARD VIEW
@@ -1874,7 +1875,14 @@
       switchView(btn.dataset.view);
       if (window.innerWidth <= 820) toggleSidebar(false);
     });
-    document.querySelectorAll('[data-menu-toggle]').forEach(btn => btn.onclick = () => toggleSidebar(!state.sidebarOpen));
+    if (!menuToggleDelegationBound) {
+      document.addEventListener('click', event => {
+        const toggle = event.target.closest('[data-menu-toggle]');
+        if (!toggle) return;
+        toggleSidebar(!state.sidebarOpen);
+      });
+      menuToggleDelegationBound = true;
+    }
     const launcher = document.getElementById('sidebarLauncher');
     if (launcher) launcher.onclick = () => toggleSidebar(true);
     const backdrop = document.getElementById('sidebarBackdrop');
