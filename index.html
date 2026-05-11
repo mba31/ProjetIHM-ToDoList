@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List — Personal Organizer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <aside class="sidebar" id="appSidebar">
+    <div class="brand">
+      <h1>Todo List<br>Personal Organizer</h1>
+      <p>Une application de gestion de projets en groupe</p>
+    </div>
+    <nav class="nav">
+      <button class="nav-btn active" data-view="dashboard">🏠 Dashboard</button>
+      <button class="nav-btn" data-view="todo">📝 To-do List</button>
+      <button class="nav-btn" data-view="gantt">🎼 Vue Chef d'orchestre</button>
+      <button class="nav-btn" data-view="calendar">🗓️ Vue Équilibre</button>
+    </nav>
+    <div id="memberSelectorWrap"></div>
+    <div class="sidebar-card">
+      <h3>💡 Métaphore active</h3>
+      <p>La plante grandit avec ta régularité. Le sablier en focus mode t'aide à rester dans le flux sans stress.</p>
+    </div>
+  </aside>
+
+  <main class="main" id="mainArea">
+    <section id="dashboard" class="view active"></section>
+    <section id="todo" class="view"></section>
+    <section id="gantt" class="view"></section>
+    <section id="calendar" class="view"></section>
+  </main>
+</div>
+
+<!-- Focus Mode Overlay -->
+<div class="focus-overlay" id="focusOverlay">
+  <div class="veil" id="focusVeil"></div>
+  <div class="focus-panel">
+    <div class="badge orange" id="focusPhase">⏳ Deep focus</div>
+    <div class="small">Tâche active</div>
+    <h2 id="focusTaskTitle" style="margin:8px 0 0;font-size:1.6rem"></h2>
+    <div class="timer" id="focusTimer">00:00</div>
+    <div class="small" id="focusLabel">Temps restant</div>
+    <div class="focus-progress"><div id="focusBar"></div></div>
+    <div class="focus-stats">
+      <div class="focus-stat"><div class="small">Temps tâche</div><strong id="focusTaskTime">0 min</strong></div>
+      <div class="focus-stat"><div class="small">Buffer</div><strong id="focusBufferTime">0 min</strong></div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <button class="btn soft" id="minimizeFocusBtn">Réduire</button>
+      <button class="btn soft" id="fullscreenFocusBtn">Plein écran</button>
+      <button class="btn warn" id="pauseFocusBtn">Pause</button>
+      <button class="btn danger" id="stopFocusBtn">Stop</button>
+    </div>
+  </div>
+</div>
+
+<div class="focus-mini" id="focusMini">
+  <div class="focus-mini-head">
+    <div>
+      <div class="small">Focus en cours</div>
+      <strong id="focusMiniTitle">Tâche active</strong>
+    </div>
+    <div class="focus-mini-actions">
+      <button class="mini-btn" id="restoreFocusBtn" title="Ouvrir">↗</button>
+      <button class="mini-btn" id="miniPauseFocusBtn" title="Pause">⏯</button>
+      <button class="mini-btn" id="miniStopFocusBtn" title="Stop">✕</button>
+    </div>
+  </div>
+  <div class="focus-mini-timer" id="focusMiniTimer">00:00</div>
+  <div class="focus-mini-progress"><div id="focusMiniBar"></div></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
