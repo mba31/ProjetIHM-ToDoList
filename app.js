@@ -22,6 +22,16 @@
     { id: 'personnel', label: 'Personnel' },
     { id: 'loisirs', label: 'Loisirs' }
   ];
+  const PROJECT_ICONS = ['💻', '📚', '🌿', '🚀', '🎨', '📦', '🧠', '🎯'];
+  const PROJECT_COLORS = [
+    { value: '#3b82f6', label: 'Bleu' },
+    { value: '#8b5cf6', label: 'Violet' },
+    { value: '#10b981', label: 'Vert' },
+    { value: '#f97316', label: 'Orange' },
+    { value: '#ec4899', label: 'Rose' },
+    { value: '#0f766e', label: 'Sapin' }
+  ];
+  const ENABLE_TEST_PREPARATION = !!window.__USER_TEST_SCENARIO__;
   const EXTRA_CATEGORY_COLORS = ['#0f766e', '#0284c7', '#ca8a04', '#be123c', '#7c3aed', '#ea580c'];
   const CALENDAR_ICON = `
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -112,6 +122,7 @@
     selectedProjectId: 'p1',
     todoFilter: 'all',
     sidebarOpen: false,
+    projectComposerOpen: false,
     calendarZoom: 'week',
     weekOffset: 0,
     selectedDate: new Date().toISOString().slice(0, 10),
@@ -160,6 +171,7 @@
   function saveState() {
     localStorage.setItem('personal-organizer-state', JSON.stringify({
       ...state,
+      projectComposerOpen: undefined,
       focus: undefined
     }));
   }
@@ -358,6 +370,100 @@
 
   function overlap(a1, a2, b1, b2) { return Math.max(a1, b1) < Math.min(a2, b2); }
 
+  function projectIconOptionsHTML(selectedValue = PROJECT_ICONS[0]) {
+    return PROJECT_ICONS.map(icon =>
+      `<option value="${escapeAttr(icon)}"${icon === selectedValue ? ' selected' : ''}>${icon}</option>`
+    ).join('');
+  }
+
+  function projectColorOptionsHTML(selectedValue = PROJECT_COLORS[1].value) {
+    return PROJECT_COLORS.map(color =>
+      `<option value="${escapeAttr(color.value)}"${color.value === selectedValue ? ' selected' : ''}>${escapeHTML(color.label)}</option>`
+    ).join('');
+  }
+
+  function projectComposerHTML(prefix) {
+    return `
+      <div class="card project-composer-card">
+        <div class="card-top project-composer-head">
+          <div>
+            <h3 class="widget-title">Nouveau projet</h3>
+            <p class="card-text">Créez un nouvel espace de travail avec son nom, sa description et son échéance.</p>
+          </div>
+          <button class="btn soft" id="${prefix}CloseProjectComposer">Fermer</button>
+        </div>
+        <div class="project-create-grid">
+          <div class="wide">
+            <label class="field-label">Nom du projet</label>
+            <input class="input" id="${prefix}ProjectName" placeholder="Ex. Refonte portfolio">
+          </div>
+          <div class="wide">
+            <label class="field-label">Description</label>
+            <textarea class="input project-create-desc" id="${prefix}ProjectDesc" placeholder="Objectif, contexte, livrables attendus..."></textarea>
+          </div>
+          <div>
+            <label class="field-label">Échéance</label>
+            <input class="input" id="${prefix}ProjectDeadline" type="date" value="${addDaysISO(7)}">
+          </div>
+          <div>
+            <label class="field-label">Icône</label>
+            <select class="select" id="${prefix}ProjectIcon">${projectIconOptionsHTML('🚀')}</select>
+          </div>
+          <div>
+            <label class="field-label">Couleur</label>
+            <select class="select" id="${prefix}ProjectColor">${projectColorOptionsHTML('#8b5cf6')}</select>
+          </div>
+          <div class="project-create-actions">
+            <button class="btn primary" id="${prefix}CreateProject">Créer le projet</button>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function toggleProjectComposer(force) {
+    state.projectComposerOpen = typeof force === 'boolean' ? force : !state.projectComposerOpen;
+    renderAll();
+  }
+
+  function createProject({ name, desc, deadline, icon, color }) {
+    const title = name.trim();
+    if (!title) {
+      notify('Ajoute un nom de projet.');
+      return false;
+    }
+
+    const projectId = 'p' + Math.random().toString(36).slice(2, 8);
+    state.projects.unshift({
+      id: projectId,
+      name: title,
+      icon: icon || '🚀',
+      color: color || '#8b5cf6',
+      desc: desc.trim() || 'Nouveau projet à organiser.',
+      deadline: deadline || addDaysISO(7),
+      tasks: []
+    });
+    state.selectedProjectId = projectId;
+    state.projectComposerOpen = false;
+    saveState();
+    renderAll();
+    notify('Projet créé.');
+    return true;
+  }
+
+  function bindProjectComposer(root, prefix) {
+    root.querySelector(`#${prefix}ToggleProjectComposer`)?.addEventListener('click', () => toggleProjectComposer(true));
+    root.querySelector(`#${prefix}CloseProjectComposer`)?.addEventListener('click', () => toggleProjectComposer(false));
+    root.querySelector(`#${prefix}CreateProject`)?.addEventListener('click', () => {
+      createProject({
+        name: root.querySelector(`#${prefix}ProjectName`)?.value || '',
+        desc: root.querySelector(`#${prefix}ProjectDesc`)?.value || '',
+        deadline: root.querySelector(`#${prefix}ProjectDeadline`)?.value || '',
+        icon: root.querySelector(`#${prefix}ProjectIcon`)?.value || '',
+        color: root.querySelector(`#${prefix}ProjectColor`)?.value || ''
+      });
+    });
+  }
+
   function hasCourseConflict(taskId, date, startTime, totalMin) {
     const start = toMinutes(startTime), end = start + totalMin;
     return allTasks().some(t =>
@@ -377,6 +483,44 @@
     renderCalendar();
     switchView('calendar');
     notify(notice);
+  }
+
+  function createPreparationTask(project, task) {
+    const existingPrep = project.tasks.find(candidate => candidate.kind === 'prep' && candidate.parentTaskId === task.id);
+    if (existingPrep) return { created: false, task: existingPrep };
+
+    const prepDuration = Math.max(15, task.buffer || 15);
+    const prepSlot     = shiftDateTime(task.date, task.startTime, -prepDuration);
+    const prepId       = 't' + Math.random().toString(36).slice(2, 8);
+    const inherited    = [...(task.dependencies || [])];
+    const prepTask = {
+      id           : prepId,
+      title        : `Preparation · ${task.title}`,
+      desc         : `Temps de preparation dedie a "${task.title}".`,
+      status       : 'pending',
+      completed    : false,
+      progress     : 0,
+      owner        : task.owner,
+      start        : prepSlot.date,
+      durationDays : prepSlot.date === task.date ? 1 : 2,
+      category     : task.category,
+      date         : prepSlot.date,
+      startTime    : prepSlot.time,
+      durationMin  : prepDuration,
+      buffer       : 0,
+      dependencies : inherited,
+      subtasks     : [],
+      delayRisk    : false,
+      expanded     : false,
+      editOpen     : false,
+      kind         : 'prep',
+      parentTaskId : task.id
+    };
+    task.dependencies = [prepId];
+    project.tasks.unshift(prepTask);
+    ensureLayerVisibility();
+    saveState();
+    return { created: true, task: prepTask };
   }
 
   function closeAllMemberMenus(exceptTaskId = null) {
@@ -413,18 +557,23 @@
         <div class="header-left">
           <button class="menu-toggle" data-menu-toggle>☰</button>
           <div>
-            <h2>Dashboard</h2>
-            <p class="sub">Vue synthétique, feedback immédiat et navigation rapide entre projets.</p>
+            <h2>Accueil</h2>
+            <p class="sub">Vue d'ensemble de vos projets, échéances et priorités du moment.</p>
           </div>
         </div>
         <div class="toolbar">
           <input class="input" type="date" id="dashboardDate" value="${state.selectedDate}">
+          <button class="btn soft" id="dashboardToggleProjectComposer">＋ Nouveau projet</button>
           <button class="btn primary" id="jumpTodo">Ouvrir le projet actif</button>
         </div>
       </div>
 
       <div class="layout-grid">
         <div>
+          ${state.projectComposerOpen ? projectComposerHTML('dashboard') : ''}
+          <div class="section-head">
+            <h3 class="widget-title">Projets</h3>
+          </div>
           <div class="cards">
             ${state.projects.map(project => {
               const pct = completionPercent(project);
@@ -503,6 +652,7 @@
       saveState();
       renderDashboard();
     });
+    bindProjectComposer(dashboardEl, 'dashboard');
     dashboardEl.querySelector('#jumpTodo').addEventListener('click',     () => switchView('todo'));
     dashboardEl.querySelector('#toProjectTodo').addEventListener('click', () => switchView('todo'));
     dashboardEl.querySelectorAll('[data-show-project]').forEach(btn => btn.addEventListener('click', e => {
@@ -538,8 +688,8 @@
         <div class="header-left">
           <button class="menu-toggle" data-menu-toggle>☰</button>
           <div>
-            <h2>To-do List</h2>
-            <p class="sub">Vue Kanban — trois colonnes compactes par statut.</p>
+            <h2>Tâches</h2>
+            <p class="sub">Organisez vos tâches personnelles, suivez leur avancement et mettez à jour votre planning.</p>
           </div>
         </div>
         <div class="toolbar">
@@ -554,10 +704,14 @@
       </div>
 
       <div class="card" style="margin-bottom:16px">
-        <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
-          <h3 class="widget-title" style="margin:0">Projets</h3>
-          <div class="small">Projet actif : <strong>${escapeHTML(project.name)}</strong> · Vue personnelle : <strong>${escapeHTML(state.currentMember)}</strong></div>
+        <div class="project-section-head">
+          <div class="project-section-copy">
+            <h3 class="widget-title" style="margin:0">Projets</h3>
+            <div class="small">Projet actif : <strong>${escapeHTML(project.name)}</strong> · Vue personnelle : <strong>${escapeHTML(state.currentMember)}</strong></div>
+          </div>
+          <button class="btn soft" id="todoToggleProjectComposer">＋ Nouveau projet</button>
         </div>
+        ${state.projectComposerOpen ? projectComposerHTML('todo') : ''}
         <div class="project-tabs">
           ${state.projects.map(p => `
             <div class="project-item ${p.id === project.id ? 'active' : ''}" data-project-item="${p.id}">
@@ -567,7 +721,13 @@
         </div>
 
         <div class="new-task-area">
-          <input class="new-task-title" id="newTitle" placeholder="Nouvelle tâche…">
+          <div class="new-task-head">
+            <div>
+              <h3 class="new-task-heading">Nouvelle tâche</h3>
+              <p class="new-task-subtitle">Ajoutez une tâche personnelle avec sa date, sa durée et son contexte.</p>
+            </div>
+          </div>
+          <input class="new-task-title" id="newTitle" placeholder="Titre de la tâche">
           <textarea class="input ntf new-task-desc" id="newDesc" placeholder="Description"></textarea>
           <div class="new-task-row">
             <div class="ntf-field">
@@ -612,6 +772,7 @@
               <select class="select ntf" id="newOwner">${MEMBERS.map(m => `<option${m === state.currentMember ? ' selected' : ''}>${m}</option>`).join('')}</select>
             </div>
             <div class="ntf-field ntf-field-action">
+              <label class="ntf-label ntf-label-spacer">Action</label>
               <button class="btn primary ntf-save" id="saveQuickTask">＋ Ajouter</button>
             </div>
           </div>
@@ -644,6 +805,8 @@
       saveState();
       renderTodo();
     });
+
+    bindProjectComposer(todoEl, 'todo');
 
     todoEl.querySelectorAll('[data-project-item]').forEach(el => el.addEventListener('click', () => {
       state.selectedProjectId = el.dataset.projectItem;
@@ -793,6 +956,10 @@
                   <button class="quick-buffer-btn" type="button" data-buffer-add="20">+20m</button>
                 </div>
               </div>
+              ${ENABLE_TEST_PREPARATION && task.kind !== 'prep' ? `
+                <div class="full">
+                  <button class="btn soft" type="button" data-action="create-prep">Creer une tache de preparation</button>
+                </div>` : ''}
               <div class="full">
                 <label class="field-label">Catégorie</label>
                 <select class="select" data-edit-field="category">
@@ -898,6 +1065,14 @@
         const input = item.querySelector('[data-edit-field="buffer"]');
         if (input) input.value = Math.max(0, Number(input.value || 0) + Number(btn.dataset.bufferAdd || 0));
       }));
+
+      const createPrepBtn = item.querySelector('[data-action="create-prep"]');
+      if (createPrepBtn) createPrepBtn.addEventListener('click', () => {
+        const result = createPreparationTask(project, task);
+        task.editOpen = false;
+        renderAll();
+        notify(result.created ? 'Tâche de préparation ajoutée.' : 'La tâche de préparation existe déjà.');
+      });
 
       item.querySelector('[data-action="delete"]').addEventListener('click', () => {
         project.tasks = project.tasks.filter(t => t.id !== id);
@@ -1016,8 +1191,8 @@
         <div class="header-left">
           <button class="menu-toggle" data-menu-toggle>☰</button>
           <div>
-            <h2>Gantt — Vue Chef d'orchestre</h2>
-            <p class="sub">Cliquez sur un membre pour filtrer ses tâches. Glissez une barre pour décaler les dépendances.</p>
+            <h2>Gantt</h2>
+            <p class="sub">Visualisez la répartition du travail dans le temps et ajustez les dépendances entre tâches.</p>
           </div>
         </div>
         <div class="toolbar">
@@ -1254,8 +1429,8 @@
         <div class="header-left">
           <button class="menu-toggle" data-menu-toggle>☰</button>
           <div>
-            <h2>Calendrier — Vue Équilibre</h2>
-            <p class="sub">Superposition des calques cours, pro et perso. Pinch-to-zoom pour jour / semaine / mois.</p>
+            <h2>Calendrier</h2>
+            <p class="sub">Planifiez votre journée, comparez vos catégories d'activité et ajustez votre emploi du temps.</p>
           </div>
         </div>
         <div class="toolbar">
@@ -1700,6 +1875,8 @@
       if (window.innerWidth <= 820) toggleSidebar(false);
     });
     document.querySelectorAll('[data-menu-toggle]').forEach(btn => btn.onclick = () => toggleSidebar(!state.sidebarOpen));
+    const launcher = document.getElementById('sidebarLauncher');
+    if (launcher) launcher.onclick = () => toggleSidebar(true);
     const backdrop = document.getElementById('sidebarBackdrop');
     if (backdrop) backdrop.onclick = () => toggleSidebar(false);
     renderMemberSelector();
@@ -1709,18 +1886,22 @@
   function updateSidebarUI() {
     const sidebar  = document.getElementById('appSidebar');
     const backdrop = document.getElementById('sidebarBackdrop');
+    const launcher = document.getElementById('sidebarLauncher');
     const mobile   = window.innerWidth <= 820;
+    document.body.classList.toggle('sidebar-collapsed', !state.sidebarOpen);
 
     if (mobile) {
       sidebar.classList.toggle('open-mobile', !!state.sidebarOpen);
       sidebar.classList.remove('closed');
       mainArea.classList.add('expanded');
       backdrop.classList.toggle('show', !!state.sidebarOpen);
+      launcher?.classList.toggle('show', !state.sidebarOpen);
     } else {
       sidebar.classList.remove('open-mobile');
       sidebar.classList.toggle('closed', !state.sidebarOpen);
       mainArea.classList.toggle('expanded', !state.sidebarOpen);
       backdrop.classList.remove('show');
+      launcher?.classList.toggle('show', !state.sidebarOpen);
     }
   }
 

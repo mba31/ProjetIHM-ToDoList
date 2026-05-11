@@ -1,0 +1,2987 @@
+{
+  "id": "scenario2",
+  "title": "Scenario 2",
+  "summary": "Travailler sur un projet de groupe, generer des sous-taches, ajouter une preparation et lancer un focus mode court.",
+  "examples": [
+    {
+      "id": "ut-s2-01-example",
+      "label": "Exemple 01 - Festival etudiant",
+      "title": "Exemple 01 - Festival etudiant",
+      "summary": "Depuis la vue personnelle de Thomas, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 1 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-01",
+        "selectedDate": "2026-05-12",
+        "calendarZoom": "day",
+        "currentMember": "Thomas",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-01",
+            "name": "Festival etudiant",
+            "icon": "Team",
+            "color": "#0f766e",
+            "desc": "Coordination d'un stand et d'une presentation de fin de journee.",
+            "deadline": "2026-05-19",
+            "tasks": [
+              {
+                "id": "ut-s2e01-t1",
+                "title": "Preparer la presentation finale",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Thomas",
+                "start": "2026-05-12",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-12",
+                "startTime": "09:30",
+                "durationMin": 1,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e01-t2",
+                "title": "Installer le materiel de demonstration",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Thomas",
+                "start": "2026-05-12",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-12",
+                "startTime": "13:00",
+                "durationMin": 35,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e01-t3",
+                "title": "Verifier la coordination 01",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Leo",
+                "start": "2026-05-12",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-12",
+                "startTime": "09:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e01-t4",
+                "title": "Installer le poste accueil 01",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Maya",
+                "start": "2026-05-12",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-12",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Thomas."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Thomas dans Festival etudiant."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer la presentation finale.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer la presentation finale\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer le materiel de demonstration en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer le materiel de demonstration\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer la presentation finale.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 1 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-02-example",
+      "label": "Exemple 02 - Salon des projets",
+      "title": "Exemple 02 - Salon des projets",
+      "summary": "Depuis la vue personnelle de Leo, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-02",
+        "selectedDate": "2026-05-13",
+        "calendarZoom": "day",
+        "currentMember": "Leo",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-02",
+            "name": "Salon des projets",
+            "icon": "Team",
+            "color": "#dc2626",
+            "desc": "Pilotage d'une vitrine de projets etudiants.",
+            "deadline": "2026-05-20",
+            "tasks": [
+              {
+                "id": "ut-s2e02-t1",
+                "title": "Structurer le pitch equipe",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Leo",
+                "start": "2026-05-13",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-13",
+                "startTime": "10:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e02-t2",
+                "title": "Installer le mur de posters",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Leo",
+                "start": "2026-05-13",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-13",
+                "startTime": "14:00",
+                "durationMin": 45,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e02-t3",
+                "title": "Verifier la coordination 02",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Maya",
+                "start": "2026-05-13",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-13",
+                "startTime": "10:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e02-t4",
+                "title": "Installer le poste accueil 02",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Sarah",
+                "start": "2026-05-13",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-13",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Leo."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Leo dans Salon des projets."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Structurer le pitch equipe.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Structurer le pitch equipe\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer le mur de posters en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer le mur de posters\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Structurer le pitch equipe.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-03-example",
+      "label": "Exemple 03 - Journee innovation",
+      "title": "Exemple 03 - Journee innovation",
+      "summary": "Depuis la vue personnelle de Maya, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-03",
+        "selectedDate": "2026-05-14",
+        "calendarZoom": "day",
+        "currentMember": "Maya",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-03",
+            "name": "Journee innovation",
+            "icon": "Team",
+            "color": "#ea580c",
+            "desc": "Organisation des demos de fin de sprint.",
+            "deadline": "2026-05-21",
+            "tasks": [
+              {
+                "id": "ut-s2e03-t1",
+                "title": "Finaliser la trame de demo",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Maya",
+                "start": "2026-05-14",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-14",
+                "startTime": "11:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e03-t2",
+                "title": "Preparer la table interactive",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Maya",
+                "start": "2026-05-14",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-14",
+                "startTime": "15:00",
+                "durationMin": 55,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e03-t3",
+                "title": "Verifier la coordination 03",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Sarah",
+                "start": "2026-05-14",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-14",
+                "startTime": "11:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e03-t4",
+                "title": "Installer le poste accueil 03",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Thomas",
+                "start": "2026-05-14",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-14",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Maya."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Maya dans Journee innovation."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Finaliser la trame de demo.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Finaliser la trame de demo\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Preparer la table interactive en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Preparer la table interactive\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Finaliser la trame de demo.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-04-example",
+      "label": "Exemple 04 - Forum emploi",
+      "title": "Exemple 04 - Forum emploi",
+      "summary": "Depuis la vue personnelle de Sarah, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 1 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-04",
+        "selectedDate": "2026-05-15",
+        "calendarZoom": "day",
+        "currentMember": "Sarah",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-04",
+            "name": "Forum emploi",
+            "icon": "Team",
+            "color": "#0891b2",
+            "desc": "Coordination d'un espace de rencontres entreprises.",
+            "deadline": "2026-05-22",
+            "tasks": [
+              {
+                "id": "ut-s2e04-t1",
+                "title": "Preparer le brief exposants",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Sarah",
+                "start": "2026-05-15",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-15",
+                "startTime": "09:30",
+                "durationMin": 1,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e04-t2",
+                "title": "Installer le point accueil",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Sarah",
+                "start": "2026-05-15",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-15",
+                "startTime": "16:00",
+                "durationMin": 35,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e04-t3",
+                "title": "Verifier la coordination 04",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Thomas",
+                "start": "2026-05-15",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-15",
+                "startTime": "12:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e04-t4",
+                "title": "Installer le poste accueil 04",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Leo",
+                "start": "2026-05-15",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-15",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Sarah."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Sarah dans Forum emploi."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer le brief exposants.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer le brief exposants\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer le point accueil en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer le point accueil\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer le brief exposants.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 1 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-05-example",
+      "label": "Exemple 05 - Challenge durable",
+      "title": "Exemple 05 - Challenge durable",
+      "summary": "Depuis la vue personnelle de Thomas, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-05",
+        "selectedDate": "2026-05-16",
+        "calendarZoom": "day",
+        "currentMember": "Thomas",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-05",
+            "name": "Challenge durable",
+            "icon": "Team",
+            "color": "#2563eb",
+            "desc": "Animation d'un challenge campus durable.",
+            "deadline": "2026-05-23",
+            "tasks": [
+              {
+                "id": "ut-s2e05-t1",
+                "title": "Preparer le message de cloture",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Thomas",
+                "start": "2026-05-16",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-16",
+                "startTime": "10:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e05-t2",
+                "title": "Installer les bornes de vote",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Thomas",
+                "start": "2026-05-16",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-16",
+                "startTime": "13:00",
+                "durationMin": 45,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e05-t3",
+                "title": "Verifier la coordination 05",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Leo",
+                "start": "2026-05-16",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-16",
+                "startTime": "09:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e05-t4",
+                "title": "Installer le poste accueil 05",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Maya",
+                "start": "2026-05-16",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-16",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Thomas."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Thomas dans Challenge durable."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer le message de cloture.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer le message de cloture\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les bornes de vote en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les bornes de vote\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer le message de cloture.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-06-example",
+      "label": "Exemple 06 - Hackathon sante",
+      "title": "Exemple 06 - Hackathon sante",
+      "summary": "Depuis la vue personnelle de Leo, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-06",
+        "selectedDate": "2026-05-17",
+        "calendarZoom": "day",
+        "currentMember": "Leo",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-06",
+            "name": "Hackathon sante",
+            "icon": "Team",
+            "color": "#8b5cf6",
+            "desc": "Pilotage d'une restitution de hackathon sante.",
+            "deadline": "2026-05-24",
+            "tasks": [
+              {
+                "id": "ut-s2e06-t1",
+                "title": "Finaliser la synthese jury",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Leo",
+                "start": "2026-05-17",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-17",
+                "startTime": "11:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e06-t2",
+                "title": "Installer la zone de pitch",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Leo",
+                "start": "2026-05-17",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-17",
+                "startTime": "14:00",
+                "durationMin": 55,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e06-t3",
+                "title": "Verifier la coordination 06",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Maya",
+                "start": "2026-05-17",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-17",
+                "startTime": "10:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e06-t4",
+                "title": "Installer le poste accueil 06",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Sarah",
+                "start": "2026-05-17",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-17",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Leo."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Leo dans Hackathon sante."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Finaliser la synthese jury.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Finaliser la synthese jury\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer la zone de pitch en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer la zone de pitch\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Finaliser la synthese jury.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-07-example",
+      "label": "Exemple 07 - Expo design",
+      "title": "Exemple 07 - Expo design",
+      "summary": "Depuis la vue personnelle de Maya, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 1 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-07",
+        "selectedDate": "2026-05-18",
+        "calendarZoom": "day",
+        "currentMember": "Maya",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-07",
+            "name": "Expo design",
+            "icon": "Team",
+            "color": "#0f766e",
+            "desc": "Coordination de la visite publique de l expo design.",
+            "deadline": "2026-05-25",
+            "tasks": [
+              {
+                "id": "ut-s2e07-t1",
+                "title": "Preparer le discours de vernissage",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Maya",
+                "start": "2026-05-18",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-18",
+                "startTime": "09:30",
+                "durationMin": 1,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e07-t2",
+                "title": "Installer les chevalets signaletiques",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Maya",
+                "start": "2026-05-18",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-18",
+                "startTime": "15:00",
+                "durationMin": 35,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e07-t3",
+                "title": "Verifier la coordination 07",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Sarah",
+                "start": "2026-05-18",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-18",
+                "startTime": "11:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e07-t4",
+                "title": "Installer le poste accueil 07",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Thomas",
+                "start": "2026-05-18",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-18",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Maya."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Maya dans Expo design."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer le discours de vernissage.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer le discours de vernissage\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les chevalets signaletiques en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les chevalets signaletiques\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer le discours de vernissage.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 1 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-08-example",
+      "label": "Exemple 08 - Bootcamp data",
+      "title": "Exemple 08 - Bootcamp data",
+      "summary": "Depuis la vue personnelle de Sarah, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-08",
+        "selectedDate": "2026-05-19",
+        "calendarZoom": "day",
+        "currentMember": "Sarah",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-08",
+            "name": "Bootcamp data",
+            "icon": "Team",
+            "color": "#dc2626",
+            "desc": "Suivi d'une restitution de bootcamp data.",
+            "deadline": "2026-05-26",
+            "tasks": [
+              {
+                "id": "ut-s2e08-t1",
+                "title": "Preparer la conclusion orale",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Sarah",
+                "start": "2026-05-19",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-19",
+                "startTime": "10:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e08-t2",
+                "title": "Installer le poste de projection",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Sarah",
+                "start": "2026-05-19",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-19",
+                "startTime": "16:00",
+                "durationMin": 45,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e08-t3",
+                "title": "Verifier la coordination 08",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Thomas",
+                "start": "2026-05-19",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-19",
+                "startTime": "12:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e08-t4",
+                "title": "Installer le poste accueil 08",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Leo",
+                "start": "2026-05-19",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-19",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Sarah."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Sarah dans Bootcamp data."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer la conclusion orale.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer la conclusion orale\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer le poste de projection en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer le poste de projection\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer la conclusion orale.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-09-example",
+      "label": "Exemple 09 - Colloque media",
+      "title": "Exemple 09 - Colloque media",
+      "summary": "Depuis la vue personnelle de Thomas, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-09",
+        "selectedDate": "2026-05-20",
+        "calendarZoom": "day",
+        "currentMember": "Thomas",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-09",
+            "name": "Colloque media",
+            "icon": "Team",
+            "color": "#ea580c",
+            "desc": "Gestion du plateau media et des intervenants.",
+            "deadline": "2026-05-27",
+            "tasks": [
+              {
+                "id": "ut-s2e09-t1",
+                "title": "Preparer l intro de session",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Thomas",
+                "start": "2026-05-20",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-20",
+                "startTime": "11:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e09-t2",
+                "title": "Installer les micros plateau",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Thomas",
+                "start": "2026-05-20",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-20",
+                "startTime": "13:00",
+                "durationMin": 55,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e09-t3",
+                "title": "Verifier la coordination 09",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Leo",
+                "start": "2026-05-20",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-20",
+                "startTime": "09:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e09-t4",
+                "title": "Installer le poste accueil 09",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Maya",
+                "start": "2026-05-20",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-20",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Thomas."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Thomas dans Colloque media."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer l intro de session.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer l intro de session\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les micros plateau en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les micros plateau\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer l intro de session.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-10-example",
+      "label": "Exemple 10 - Nuit du code",
+      "title": "Exemple 10 - Nuit du code",
+      "summary": "Depuis la vue personnelle de Leo, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 1 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-10",
+        "selectedDate": "2026-05-21",
+        "calendarZoom": "day",
+        "currentMember": "Leo",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-10",
+            "name": "Nuit du code",
+            "icon": "Team",
+            "color": "#0891b2",
+            "desc": "Organisation de la soiree de restitution code.",
+            "deadline": "2026-05-28",
+            "tasks": [
+              {
+                "id": "ut-s2e10-t1",
+                "title": "Preparer la review finale",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Leo",
+                "start": "2026-05-21",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-21",
+                "startTime": "09:30",
+                "durationMin": 1,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e10-t2",
+                "title": "Installer les tables demo",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Leo",
+                "start": "2026-05-21",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-21",
+                "startTime": "14:00",
+                "durationMin": 35,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e10-t3",
+                "title": "Verifier la coordination 10",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Maya",
+                "start": "2026-05-21",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-21",
+                "startTime": "10:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e10-t4",
+                "title": "Installer le poste accueil 10",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Sarah",
+                "start": "2026-05-21",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-21",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Leo."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Leo dans Nuit du code."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer la review finale.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer la review finale\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les tables demo en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les tables demo\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer la review finale.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 1 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-11-example",
+      "label": "Exemple 11 - Forum mobilite",
+      "title": "Exemple 11 - Forum mobilite",
+      "summary": "Depuis la vue personnelle de Maya, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-11",
+        "selectedDate": "2026-05-22",
+        "calendarZoom": "day",
+        "currentMember": "Maya",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-11",
+            "name": "Forum mobilite",
+            "icon": "Team",
+            "color": "#2563eb",
+            "desc": "Coordination d'une journee mobilite et transports.",
+            "deadline": "2026-05-29",
+            "tasks": [
+              {
+                "id": "ut-s2e11-t1",
+                "title": "Preparer la presentation logistique",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Maya",
+                "start": "2026-05-22",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-22",
+                "startTime": "10:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e11-t2",
+                "title": "Installer les panneaux parcours",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Maya",
+                "start": "2026-05-22",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-22",
+                "startTime": "15:00",
+                "durationMin": 45,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e11-t3",
+                "title": "Verifier la coordination 11",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Sarah",
+                "start": "2026-05-22",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-22",
+                "startTime": "11:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e11-t4",
+                "title": "Installer le poste accueil 11",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Thomas",
+                "start": "2026-05-22",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-22",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Maya."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Maya dans Forum mobilite."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer la presentation logistique.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer la presentation logistique\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les panneaux parcours en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les panneaux parcours\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer la presentation logistique.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-12-example",
+      "label": "Exemple 12 - Village sport",
+      "title": "Exemple 12 - Village sport",
+      "summary": "Depuis la vue personnelle de Sarah, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-12",
+        "selectedDate": "2026-05-23",
+        "calendarZoom": "day",
+        "currentMember": "Sarah",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-12",
+            "name": "Village sport",
+            "icon": "Team",
+            "color": "#8b5cf6",
+            "desc": "Gestion des activites sportives du village campus.",
+            "deadline": "2026-05-30",
+            "tasks": [
+              {
+                "id": "ut-s2e12-t1",
+                "title": "Preparer les consignes finales",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Sarah",
+                "start": "2026-05-23",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-23",
+                "startTime": "11:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e12-t2",
+                "title": "Installer le stand chronometrage",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Sarah",
+                "start": "2026-05-23",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-23",
+                "startTime": "16:00",
+                "durationMin": 55,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e12-t3",
+                "title": "Verifier la coordination 12",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Thomas",
+                "start": "2026-05-23",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-23",
+                "startTime": "12:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e12-t4",
+                "title": "Installer le poste accueil 12",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Leo",
+                "start": "2026-05-23",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-23",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Sarah."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Sarah dans Village sport."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer les consignes finales.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer les consignes finales\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer le stand chronometrage en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer le stand chronometrage\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer les consignes finales.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-13-example",
+      "label": "Exemple 13 - Journee climat",
+      "title": "Exemple 13 - Journee climat",
+      "summary": "Depuis la vue personnelle de Thomas, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 1 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-13",
+        "selectedDate": "2026-05-24",
+        "calendarZoom": "day",
+        "currentMember": "Thomas",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-13",
+            "name": "Journee climat",
+            "icon": "Team",
+            "color": "#0f766e",
+            "desc": "Animation d'une journee climat et debats.",
+            "deadline": "2026-05-31",
+            "tasks": [
+              {
+                "id": "ut-s2e13-t1",
+                "title": "Preparer le mot de synthese",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Thomas",
+                "start": "2026-05-24",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-24",
+                "startTime": "09:30",
+                "durationMin": 1,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e13-t2",
+                "title": "Installer les affiches parcours",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Thomas",
+                "start": "2026-05-24",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-24",
+                "startTime": "13:00",
+                "durationMin": 35,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e13-t3",
+                "title": "Verifier la coordination 13",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Leo",
+                "start": "2026-05-24",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-24",
+                "startTime": "09:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e13-t4",
+                "title": "Installer le poste accueil 13",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Maya",
+                "start": "2026-05-24",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-24",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Thomas."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Thomas dans Journee climat."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer le mot de synthese.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer le mot de synthese\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les affiches parcours en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les affiches parcours\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer le mot de synthese.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 1 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-14-example",
+      "label": "Exemple 14 - Semaine culture",
+      "title": "Exemple 14 - Semaine culture",
+      "summary": "Depuis la vue personnelle de Leo, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-14",
+        "selectedDate": "2026-05-25",
+        "calendarZoom": "day",
+        "currentMember": "Leo",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-14",
+            "name": "Semaine culture",
+            "icon": "Team",
+            "color": "#dc2626",
+            "desc": "Pilotage des animations culturelles de la semaine.",
+            "deadline": "2026-05-32",
+            "tasks": [
+              {
+                "id": "ut-s2e14-t1",
+                "title": "Preparer la prise de parole finale",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Leo",
+                "start": "2026-05-25",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-25",
+                "startTime": "10:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e14-t2",
+                "title": "Installer la regie lumiere",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Leo",
+                "start": "2026-05-25",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-25",
+                "startTime": "14:00",
+                "durationMin": 45,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e14-t3",
+                "title": "Verifier la coordination 14",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Maya",
+                "start": "2026-05-25",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-25",
+                "startTime": "10:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e14-t4",
+                "title": "Installer le poste accueil 14",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Sarah",
+                "start": "2026-05-25",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-25",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Leo."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Leo dans Semaine culture."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer la prise de parole finale.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer la prise de parole finale\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer la regie lumiere en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer la regie lumiere\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer la prise de parole finale.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-15-example",
+      "label": "Exemple 15 - Demo XR",
+      "title": "Exemple 15 - Demo XR",
+      "summary": "Depuis la vue personnelle de Maya, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-15",
+        "selectedDate": "2026-05-26",
+        "calendarZoom": "day",
+        "currentMember": "Maya",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-15",
+            "name": "Demo XR",
+            "icon": "Team",
+            "color": "#ea580c",
+            "desc": "Coordination d'une demonstration XR au public.",
+            "deadline": "2026-05-33",
+            "tasks": [
+              {
+                "id": "ut-s2e15-t1",
+                "title": "Preparer le script de demo",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Maya",
+                "start": "2026-05-26",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-26",
+                "startTime": "11:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e15-t2",
+                "title": "Installer les casques de test",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Maya",
+                "start": "2026-05-26",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-26",
+                "startTime": "15:00",
+                "durationMin": 55,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e15-t3",
+                "title": "Verifier la coordination 15",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Sarah",
+                "start": "2026-05-26",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-26",
+                "startTime": "11:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e15-t4",
+                "title": "Installer le poste accueil 15",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Thomas",
+                "start": "2026-05-26",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-26",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Maya."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Maya dans Demo XR."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer le script de demo.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer le script de demo\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les casques de test en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les casques de test\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer le script de demo.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-16-example",
+      "label": "Exemple 16 - Rencontre alumni",
+      "title": "Exemple 16 - Rencontre alumni",
+      "summary": "Depuis la vue personnelle de Sarah, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 1 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-16",
+        "selectedDate": "2026-05-27",
+        "calendarZoom": "day",
+        "currentMember": "Sarah",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-16",
+            "name": "Rencontre alumni",
+            "icon": "Team",
+            "color": "#0891b2",
+            "desc": "Gestion d'une rencontre alumni et etudiants.",
+            "deadline": "2026-05-34",
+            "tasks": [
+              {
+                "id": "ut-s2e16-t1",
+                "title": "Preparer le mot d accueil",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Sarah",
+                "start": "2026-05-27",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-27",
+                "startTime": "09:30",
+                "durationMin": 1,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e16-t2",
+                "title": "Installer le coin photo",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Sarah",
+                "start": "2026-05-27",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-27",
+                "startTime": "16:00",
+                "durationMin": 35,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e16-t3",
+                "title": "Verifier la coordination 16",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Thomas",
+                "start": "2026-05-27",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-27",
+                "startTime": "12:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e16-t4",
+                "title": "Installer le poste accueil 16",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Leo",
+                "start": "2026-05-27",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-27",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Sarah."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Sarah dans Rencontre alumni."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer le mot d accueil.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer le mot d accueil\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer le coin photo en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer le coin photo\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer le mot d accueil.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 1 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-17-example",
+      "label": "Exemple 17 - Salon makers",
+      "title": "Exemple 17 - Salon makers",
+      "summary": "Depuis la vue personnelle de Thomas, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-17",
+        "selectedDate": "2026-05-28",
+        "calendarZoom": "day",
+        "currentMember": "Thomas",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-17",
+            "name": "Salon makers",
+            "icon": "Team",
+            "color": "#2563eb",
+            "desc": "Mise en place d'un salon makers et prototypage.",
+            "deadline": "2026-05-35",
+            "tasks": [
+              {
+                "id": "ut-s2e17-t1",
+                "title": "Preparer la restitution makers",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Thomas",
+                "start": "2026-05-28",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-28",
+                "startTime": "10:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e17-t2",
+                "title": "Installer les etablis atelier",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Thomas",
+                "start": "2026-05-28",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-28",
+                "startTime": "13:00",
+                "durationMin": 45,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e17-t3",
+                "title": "Verifier la coordination 17",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Leo",
+                "start": "2026-05-28",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-28",
+                "startTime": "09:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e17-t4",
+                "title": "Installer le poste accueil 17",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Maya",
+                "start": "2026-05-28",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-28",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Thomas."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Thomas dans Salon makers."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer la restitution makers.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer la restitution makers\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les etablis atelier en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les etablis atelier\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer la restitution makers.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-18-example",
+      "label": "Exemple 18 - Journee citoyenne",
+      "title": "Exemple 18 - Journee citoyenne",
+      "summary": "Depuis la vue personnelle de Leo, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-18",
+        "selectedDate": "2026-05-29",
+        "calendarZoom": "day",
+        "currentMember": "Leo",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-18",
+            "name": "Journee citoyenne",
+            "icon": "Team",
+            "color": "#8b5cf6",
+            "desc": "Coordination d'une restitution associative.",
+            "deadline": "2026-05-36",
+            "tasks": [
+              {
+                "id": "ut-s2e18-t1",
+                "title": "Preparer la conclusion du groupe",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Leo",
+                "start": "2026-05-29",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-29",
+                "startTime": "11:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e18-t2",
+                "title": "Installer les kakemonos hall",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Leo",
+                "start": "2026-05-29",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-29",
+                "startTime": "14:00",
+                "durationMin": 55,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e18-t3",
+                "title": "Verifier la coordination 18",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Maya",
+                "start": "2026-05-29",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-29",
+                "startTime": "10:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e18-t4",
+                "title": "Installer le poste accueil 18",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Sarah",
+                "start": "2026-05-29",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-29",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Leo."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Leo dans Journee citoyenne."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer la conclusion du groupe.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer la conclusion du groupe\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les kakemonos hall en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les kakemonos hall\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer la conclusion du groupe.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-19-example",
+      "label": "Exemple 19 - Forum IA",
+      "title": "Exemple 19 - Forum IA",
+      "summary": "Depuis la vue personnelle de Maya, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 1 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-19",
+        "selectedDate": "2026-05-30",
+        "calendarZoom": "day",
+        "currentMember": "Maya",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-19",
+            "name": "Forum IA",
+            "icon": "Team",
+            "color": "#0f766e",
+            "desc": "Organisation d'un espace d echanges autour de l IA.",
+            "deadline": "2026-05-37",
+            "tasks": [
+              {
+                "id": "ut-s2e19-t1",
+                "title": "Preparer la demo finale",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Maya",
+                "start": "2026-05-30",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-30",
+                "startTime": "09:30",
+                "durationMin": 1,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e19-t2",
+                "title": "Installer l ecran principal",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Maya",
+                "start": "2026-05-30",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-30",
+                "startTime": "15:00",
+                "durationMin": 35,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e19-t3",
+                "title": "Verifier la coordination 19",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Sarah",
+                "start": "2026-05-30",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-30",
+                "startTime": "11:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e19-t4",
+                "title": "Installer le poste accueil 19",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Thomas",
+                "start": "2026-05-30",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-30",
+                "startTime": "11:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Maya."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Maya dans Forum IA."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer la demo finale.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer la demo finale\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer l ecran principal en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer l ecran principal\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer la demo finale.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 1 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    },
+    {
+      "id": "ut-s2-20-example",
+      "label": "Exemple 20 - Parcours inclusion",
+      "title": "Exemple 20 - Parcours inclusion",
+      "summary": "Depuis la vue personnelle de Sarah, generer des sous-taches pour t1, creer une preparation pour t2, puis lancer un focus de 2 min.",
+      "seedState": {
+        "selectedProjectId": "ut-s2-20",
+        "selectedDate": "2026-05-31",
+        "calendarZoom": "day",
+        "currentMember": "Sarah",
+        "layerVisibility": {
+          "etudes": true,
+          "travail": true,
+          "personnel": true,
+          "loisirs": true
+        },
+        "projects": [
+          {
+            "id": "ut-s2-20",
+            "name": "Parcours inclusion",
+            "icon": "Team",
+            "color": "#dc2626",
+            "desc": "Pilotage d'une journee inclusion et sensibilisation.",
+            "deadline": "2026-05-38",
+            "tasks": [
+              {
+                "id": "ut-s2e20-t1",
+                "title": "Preparer le message final",
+                "desc": "Slides, message cle et repetition rapide.",
+                "status": "pending",
+                "completed": false,
+                "progress": 10,
+                "owner": "Sarah",
+                "start": "2026-05-31",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-31",
+                "startTime": "10:30",
+                "durationMin": 2,
+                "buffer": 0,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e20-t2",
+                "title": "Installer les supports d acces",
+                "desc": "Verifier le materiel, la signaletique et la mise en place.",
+                "status": "pending",
+                "completed": false,
+                "progress": 5,
+                "owner": "Sarah",
+                "start": "2026-05-31",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-31",
+                "startTime": "16:00",
+                "durationMin": 45,
+                "buffer": 15,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e20-t3",
+                "title": "Verifier la coordination 20",
+                "desc": "Point intermediaire sur le dispositif.",
+                "status": "doing",
+                "completed": false,
+                "progress": 45,
+                "owner": "Thomas",
+                "start": "2026-05-31",
+                "durationDays": 1,
+                "category": "etudes",
+                "date": "2026-05-31",
+                "startTime": "12:00",
+                "durationMin": 25,
+                "buffer": 5,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              },
+              {
+                "id": "ut-s2e20-t4",
+                "title": "Installer le poste accueil 20",
+                "desc": "Mettre en place la zone visiteurs.",
+                "status": "pending",
+                "completed": false,
+                "progress": 15,
+                "owner": "Leo",
+                "start": "2026-05-31",
+                "durationDays": 1,
+                "category": "travail",
+                "date": "2026-05-31",
+                "startTime": "12:30",
+                "durationMin": 30,
+                "buffer": 10,
+                "dependencies": [],
+                "subtasks": [],
+                "delayRisk": false,
+                "expanded": false,
+                "editOpen": false
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Afficher le taskboard du projet",
+          "instructions": [
+            "Ouvrez la vue Taches du projet actif.",
+            "Verifiez que vous etes bien dans la vue personnelle de Sarah."
+          ],
+          "expected": "Le taskboard n'affiche que les taches de Sarah dans Parcours inclusion."
+        },
+        {
+          "title": "Generer les sous-taches de t1",
+          "instructions": [
+            "Reperez la tache Preparer le message final.",
+            "Utilisez l'action de generation automatique de sous-taches."
+          ],
+          "expected": "Des sous-taches sont ajoutees a \"Preparer le message final\"."
+        },
+        {
+          "title": "Ajouter une preparation pour t2",
+          "instructions": [
+            "Ouvrez la tache Installer les supports d acces en edition.",
+            "Utilisez le bouton Creer une tache de preparation."
+          ],
+          "expected": "Une nouvelle tache de preparation apparait pour \"Installer les supports d acces\"."
+        },
+        {
+          "title": "Lancer le focus mode sur t1",
+          "instructions": [
+            "Revenez sur la tache Preparer le message final.",
+            "Lancez le focus mode.",
+            "Observez le timer pendant environ 2 minute(s) jusqu'au retour a l'accueil."
+          ],
+          "expected": "Le timer progresse, la session se termine et l'accueil reapparait."
+        }
+      ]
+    }
+  ]
+}
