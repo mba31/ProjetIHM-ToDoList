@@ -1,5 +1,10 @@
 # Focus Planner
 
+## Auteurs
+- Janna GUDUMAC
+- Marwa BOU ANTOUN 
+- Minh Hang PHAM
+
 Prototype d'application de planification personnelle et de gestion de projets en groupe.
 
 L'application propose :
